@@ -9,12 +9,21 @@ class UsersTab extends React.Component {
 		);
 
 		return (
-
-			<table className="table table-striped">
-			<tbody>
-				{usersList}
-			</tbody>
-</table>
+			<div className="row">
+				<table className="table table-striped">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Birth</th>
+							<th>Mail</th>
+							<th>ZIP/Code</th>
+						</tr>
+					</thead>
+					<tbody>
+						{usersList}
+					</tbody>
+				</table>
+			</div>
 		);
 	}
 }

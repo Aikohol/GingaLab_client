@@ -5,7 +5,8 @@ import {
 	FormGroup,
 	ControlLabel,
 	FormControl,
-	Button, } from 'react-bootstrap';
+	Col,
+	Row } from 'react-bootstrap';
 
 class Create extends React.Component {
 	constructor() {
@@ -42,27 +43,30 @@ class Create extends React.Component {
 
 	render () {
 		return(
-			<div bsStyle="col-6">
-				<form className="form-horizontal" onSubmit={ (e) => this.validateForm(e) } >
-						<div className="modal-header"><h3>New user</h3></div>
-						<div className="modal-body col-sm-12">
-					{this.formInput('text', 'firstName')}
-					{this.formInput('text', 'lastName')}
-					{this.formInput('date', 'birth')}
-					{this.formInput('email', 'mail')}
-					{this.formInput('number', 'code')}
-					{/* <Button bsStyle="success">Success</Button> */}
-					<FormGroup>
-						<FormControl
-							bsStyle="success"
-							type="submit"
-							value="create"
-						/>
-					</FormGroup>
+			<Row className="text-center">
+				<Col className="col-lg-8 col-md-offset-2">
+				<div>
+					<form className="form-horizontal" onSubmit={ (e) => this.validateForm(e) } >
+							<div className="modal-header"><h3>New user</h3></div>
+							<div className="modal-body col-sm-12">
+						{this.formInput('text', 'firstName')}
+						{this.formInput('text', 'lastName')}
+						{this.formInput('date', 'birth')}
+						{this.formInput('email', 'mail')}
+						{this.formInput('number', 'code')}
+						{/* <Button bsStyle="success">Success</Button> */}
+						<FormGroup>
+							<FormControl
+								type="submit"
+								value="create"
+							/>
+						</FormGroup>
+					</div>
+					</form>
+					<a href="/">All Users</a>
 				</div>
-				</form>
-				<a href="/">All Users</a>
-			</div>
+			</Col>
+		</Row>
 		);
 	}
 }

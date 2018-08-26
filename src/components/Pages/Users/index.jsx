@@ -1,6 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 
+import {
+	Col,
+	Row } from 'react-bootstrap';
+
 import UsersTab from '../../../containers/Users/UsersTab';
 
 class Users extends React.Component {
@@ -11,20 +15,21 @@ class Users extends React.Component {
 		};
 	}
 	componentDidMount() {
-		// console.log(axios.default.baseURL);
-
 		axios.get(axios.default.baseURL + '/user')
 		.then(result => {
 			this.setState({ users: result.data });
-			// console.log('result.data');
 		});
 	}
 	render() {
 		return (
-			<div className="container_users">
-				<a href="/create_user">Creer un utilisateur</a>
-				<UsersTab users={this.state.users}/>
-			</div>
+			<Row>
+				<Col className="col-lg-10 col-md-offset-1">
+					<div className="container_users">
+						<a href="/create_user">Creer un utilisateur</a>
+						<UsersTab users={this.state.users}/>
+					</div>
+				</Col>
+			</Row>
 		);
 	}
 }
